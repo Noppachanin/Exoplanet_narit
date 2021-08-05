@@ -67,6 +67,9 @@ print("Rp(Rplanet/Rstar): %s" %target_data['st_rad'])
 print("inc: %s" %target_data['pl_orbincl'])
 print("a: %s" %target_data['pl_orbsmax'])
 print("Per: %s"%target_data['pl_orbper'])
+print("TC: %s"%target_data['pl_tranmid'])
+pl_tranmid
+
 
 print("Stellar params Mass: %s" %target_data['st_mass'])
 print("Stellar params Radius: %s" %target_data['st_rad'] )
