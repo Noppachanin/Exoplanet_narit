@@ -38,8 +38,18 @@ except FileExistsError:
     pass
 # figure, axes = plt.subplots(2)
 # Stellar_M: Steller mass unit, 
-Habit_zone(host_name='Earth',Stellar_M = 1,a =150e6/(6.957e5),Stellar_R = 1 )
-Habit_zone(host_name=target_data['hostname'],Stellar_M = target_data['st_mass'],a =target_data['pl_orbsmax'],Stellar_R = target_data['st_rad'] )
+#Habit_zone(host_name='Earth',a =1,Stellar_R = 1 ) #Uncomment for value correction
+print("Default parameters")
+print("Host Name: %s" %target_data['hostname'])
+print("Rp(Rplanet/Rstar): %s" %target_data['st_rad'])
+print("inc: %s" %target_data['pl_orbincl'])
+print("a: %s" %target_data['pl_orbsmax'])
+print("Per: %s"%target_data['pl_orbper'])
+
+print("Stellar params Mass: %s" %target_data['st_mass'])
+print("Stellar params Radius: %s" %target_data['st_rad'] )
+print("Stellar params Temp: %s" %target_data['st_teff'])
+Habit_zone(host_name=target_data['hostname'],a =target_data['pl_orbsmax'],Stellar_R = target_data['st_rad'] )
 Exo_plot(host_name=target_data['hostname'], Inc = target_data['pl_orbincl'] ,Stellar_R = target_data['st_rad'], a =target_data['pl_orbsmax'], ST=target_data['st_teff'] )
 
 plt.show()

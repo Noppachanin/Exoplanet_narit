@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as lines
 
 def Habit_zone(host_name='Sun',Albedo = 0.36,a=1,Stellar_R = 1,ST=5778 ):
-    print("Please adding planet's name, Stellar mass, Semimajor axis to Stellar R Ratio, and Stellar Radius")
+    #print("Please adding planet's name, Stellar mass, Semimajor axis to Stellar R Ratio, and Stellar Radius")
     
     sigma = 5.67e-8
     Lsun = 3.84e26
@@ -35,8 +35,8 @@ def Habit_zone(host_name='Sun',Albedo = 0.36,a=1,Stellar_R = 1,ST=5778 ):
 
     #print(Rin,Rout)
     #print("Rin= {:.2e}, Rout= {:.2e}".format(Rin,Rout))
-    print(Rin)
-    print(Rout)
+    #print(Rin)
+    #print(Rout)
     # Inner Circle
     circle1 = plt.Circle((0, 0), Rin, color='w')
     # Outer Circle
@@ -69,9 +69,9 @@ def Habit_zone(host_name='Sun',Albedo = 0.36,a=1,Stellar_R = 1,ST=5778 ):
     return ax
 
 def Exo_plot(host_name='HATS-2', R_ratio=0.1335, Inc = 87.2 ,Stellar_R = 0.898, a =5.50, ST= 5227 ):
-    print('Check all inputs: host_name, R_ratio(R_pl/R_star), Inc, Stellar_R, a(semi_axis(au)), Stellar Temperature(ST)')
-    print('Note that R_pl is in jupiter\'s radius unit ')
-    print("Drawing Exoplanet..............")
+    #print('Check all inputs: host_name, R_ratio(R_pl/R_star), Inc, Stellar_R, a(semi_axis(au)), Stellar Temperature(ST)')
+    #print('Note that R_pl is in jupiter\'s radius unit ')
+    #print("Drawing Exoplanet..............")
     fig, axes = plt.subplots()
     # Get transit parameters
     #Impact_params = 5 # map from the actual value to a integer between 0 to 10
@@ -91,7 +91,8 @@ def Exo_plot(host_name='HATS-2', R_ratio=0.1335, Inc = 87.2 ,Stellar_R = 0.898, 
 
 
     # Setting color
-    print('Stellar Temperature = %d' % ST)
+    #print('Stellar Temperature = %d' % ST)
+    
     #30000 Blue
     if ST > 30000:
         color_star = 'blue'
@@ -139,11 +140,14 @@ def Exo_plot(host_name='HATS-2', R_ratio=0.1335, Inc = 87.2 ,Stellar_R = 0.898, 
     #plt.gca().add_patch(Drawing_jupiter)
     #plt.gca().add_patch(Drawing_pl)
 
-    plt.xlabel('Stellar star unit radius')
-    plt.ylabel('Stellar star unit radius')
+    plt.xlabel('Host star unit radius')
+    plt.ylabel('Host star unit radius')
     plt.title( 'Exoplanet Visualization of '+ host_name)
     plt.savefig('figures/Transit_'+ host_name +'.png',dpi=300)
     #plt.show()
+
+    
+    #Exo_plot(host_name='HATS-2', R_ratio=0.1335, Inc = 87.2 ,Stellar_R = 0.898, a =5.50, ST= 5227 )
     return axes
 
 
