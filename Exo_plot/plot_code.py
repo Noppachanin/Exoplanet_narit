@@ -27,6 +27,27 @@ while True:
 
 # Get the target's parameters
 target_data = raw_data[raw_data['hostname'].str.lower() == str(target.lower())] # Normalize all str to lowercase
+#target_data = target_data.to_dict('records')[0]
+
+#Choose Planet names
+print("Available planet name(s)")
+print(list(target_data['pl_name']))
+
+while True:
+    # Input plname to search in the file
+    target = input("Choose a planet from list: ")
+
+
+    # Check whether the star exists 
+    if str(target.lower()) in list(target_data['pl_name'].str.lower()):
+        print("Target's found")
+        break
+    else:
+        print("Input: " + target)
+        print("Target's not found")
+
+# Get the target's parameters
+target_data = target_data[target_data['pl_name'].str.lower() == str(target.lower())] # Normalize all str to lowercase
 target_data = target_data.to_dict('records')[0]
 
 # Check whether the destination folder exists
@@ -39,7 +60,8 @@ except FileExistsError:
 # figure, axes = plt.subplots(2)
 # Stellar_M: Steller mass unit, 
 #Habit_zone(host_name='Earth',a =1,Stellar_R = 1 ) #Uncomment for value correction
-print("Default parameters")
+print("Default parameters") 
+print("Planet Name: %s" %target_data['pl_name'])
 print("Host Name: %s" %target_data['hostname'])
 print("Rp(Rplanet/Rstar): %s" %target_data['st_rad'])
 print("inc: %s" %target_data['pl_orbincl'])
